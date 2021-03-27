@@ -3,7 +3,7 @@
     this.name = "cbWire";
     this.version = "1.0.0";
     this.author = "Grant Copley";
-    this.webUrl = "https://github.com/grantcopley/cbWire";
+    this.webUrl = "https://github.com/grantcopley/cbLivewire";
     this.dependencies = [];
     this.entryPoint = "/livewire";
 
@@ -14,7 +14,7 @@
                 "helper": true,
                 "controllerMethods": true
             },
-            "defaultViewArgs": { "view": "main/index", "module": "cbbolt" },
+            "defaultViewArgs": { "view": "main/index", "module": "cbLivewire" },
             "version": function() {
                 return "";
             }
@@ -27,13 +27,13 @@
                 .getInterceptorService()
                 .registerInterceptor(
                     interceptorName = "LivewireLifecycleInterceptor",
-                    interceptorClass = "#moduleMapping#.interceptors.BoltLifecycle"
+                    interceptorClass = "#moduleMapping#.interceptors.cbLivewireLifecycle"
                 );
         }
 
         if ( settings.register.helper ) {
             var helpers = controller.getSetting( "applicationHelper" );
-            arrayAppend( helpers, "#moduleMapping#/helpers/Livewire.cfm" );
+            arrayAppend( helpers, "#moduleMapping#/helpers/cbLivewire.cfm" );
             controller.setSetting( "applicationHelper", helpers );
         }
 
@@ -45,12 +45,12 @@
                 ) != ""
             ) {
                 throw(
-                    "Cannot auto-register the `BoltControllerDecorator` when a `controllerDecorator` is already set."
+                    "Cannot auto-register the `cbLivewireControllerDecorator` when a `controllerDecorator` is already set."
                 );
             }
             controller.setSetting(
                 "controllerDecorator",
-                "#moduleMapping#.models.BoltControllerDecorator"
+                "#moduleMapping#.models.cbLivewireControllerDecorator"
             );
             controller.getLoaderService().createControllerDecorator();
         }
@@ -61,7 +61,7 @@
             controller.setSetting(
                 "applicationHelper",
                 arrayFilter( controller.getSetting( "applicationHelper" ), function( helper ) {
-                    return helper != "#moduleMapping#/helpers/Livewire.cfm";
+                    return helper != "#moduleMapping#/helpers/cbLivewire.cfm";
                 } )
             );
         }
@@ -69,7 +69,7 @@
         if ( settings.register.interceptor ) {
             controller
                 .getInterceptorService()
-                .unregister( interceptorName = "LivewireLifecycleInterceptor" );
+                .unregister( interceptorName = "cbLivewireLifecycleInterceptor" );
         }
 
         if ( settings.register.controllerMethods ) {

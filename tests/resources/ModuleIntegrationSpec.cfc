@@ -4,7 +4,7 @@ component extends="coldbox.system.testing.BaseTestCase" {
         super.beforeAll();
         
         getController().getModuleService()
-            .registerAndActivateModule( "cbBolt", "testingModuleRoot" );
+            .registerAndActivateModule( "cbLivewire", "testingModuleRoot" );
     }
 
     /**

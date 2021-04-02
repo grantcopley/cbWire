@@ -22,9 +22,7 @@
             }
         };
         routes = [
-            {pattern="/", handler="Welcome", action="index"},
-            {pattern="/:year-numeric/:month-numeric?", handler="blog", action="showPosts"},
-            {pattern="/comment/:action", handler="comments"}
+            {pattern="/", handler="Welcome", action="index"}
         ];
     }
 

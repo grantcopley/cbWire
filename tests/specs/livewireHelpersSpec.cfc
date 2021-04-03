@@ -6,7 +6,8 @@ component extends="tests.resources.ModuleIntegrationSpec" appMapping="/app" {
         describe( "helpers/cbLivewire.cfm", function() {
             describe( "livewireStyles() method", function() {
                 it( "returns the livewire styles", function() {
-                    var result = livewireStyles();
+                    var livewire = getInstance( "livewire.models.Livewire" );
+                    var result = livewire.getStyles();
                     expect( result ).toInclude( "<!-- Livewire Styles -->" );
                     expect( result ).toInclude(
                         "[wire\:loading], [wire\:loading\.delay]"
@@ -23,6 +24,7 @@ component extends="tests.resources.ModuleIntegrationSpec" appMapping="/app" {
                     expect( result ).toInclude( "window.livewire = new Livewire();" );
                 } );
             } );
+
         } );
     }
 

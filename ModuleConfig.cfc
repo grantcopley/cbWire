@@ -8,6 +8,7 @@ component {
     this.entryPoint = "/livewire";
     this.layoutParentLookup = false;
     this.viewParentLookup = false;
+    this.cfmapping = "cblivewire";
 
     function configure() {
         settings = {
